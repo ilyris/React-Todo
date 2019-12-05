@@ -1,9 +1,12 @@
 import React from 'react';
 import S from 'styled-components';
+import './Todo.css';
 
 const ToDo = (props) => {
     return(
-        <Card><ItemName>{props.itemName}</ItemName></Card>
+        <Card onClick={ e => props.toggleItem(props.item.id)} className={props.item.isCompleted ? "completed" : null}>
+            <ItemName>{props.item.name}</ItemName>
+        </Card>
     );
 }
 export default ToDo
@@ -11,6 +14,9 @@ export default ToDo
 const Card = S.div`
     width: auto;
     background-color: #000;
+    &: hover {
+        cursor: pointer;
+    }
 
 `;
 

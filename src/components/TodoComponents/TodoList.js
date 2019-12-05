@@ -8,7 +8,7 @@ const ToDoList = (props) => {
     return(
         <div>
             {props.itemArray && props.itemArray.map( (items) => {
-                return <ToDo itemName={items.name} isCompleted={items.isCompleted}/>
+                return <ToDo item={items} isCompleted={items.isCompleted} toggleItem={props.toggleItem}/>
             })}
             <ToDoForm inputValue={props.inputValue} handleChange={props.handleChange} addItem={props.addItem}/>
         </div>

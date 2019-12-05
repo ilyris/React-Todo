@@ -34,9 +34,19 @@ class App extends React.Component {
       }));
 
   }
-      // const toggleItem = (event) => {
-    //   this.setState({...this.state, isCompleted: !this.state.isCompleted})
-    // }
+    toggleItem = (itemId) => {
+      this.setState({...this.state.name,
+        itemArray: this.state.itemArray.map( items => {
+          if(itemId === items.id) {
+            return {
+              ...items,
+              isCompleted: !items.isCompleted
+            };
+          }
+          return items;
+        })
+      });
+    };
     // const clearItem = () => {
 
     // }
@@ -45,7 +55,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <ToDoList itemArray={this.state.itemArray} inputValue={this.state.itemName} handleChange={this.handleChange} addItem={this.addItem}/>
+        <ToDoList toggleItem={this.toggleItem} itemArray={this.state.itemArray} inputValue={this.state.itemName} handleChange={this.handleChange} addItem={this.addItem}/>
       </div>
     );
   }
