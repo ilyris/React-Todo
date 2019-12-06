@@ -47,15 +47,19 @@ class App extends React.Component {
         })
       });
     };
-    // const clearItem = () => {
-
-    // }
+    clearItem = () => {
+      console.log('I fired');
+      this.setState({
+        ...this.state.name,
+        itemArray: this.state.itemArray.filter( items => items.isCompleted === false),
+      })
+    }
   
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <ToDoList toggleItem={this.toggleItem} itemArray={this.state.itemArray} inputValue={this.state.itemName} handleChange={this.handleChange} addItem={this.addItem}/>
+        <ToDoList  clearItem={this.clearItem}toggleItem={this.toggleItem} itemArray={this.state.itemArray} inputValue={this.state.itemName} handleChange={this.handleChange} addItem={this.addItem}/>
       </div>
     );
   }

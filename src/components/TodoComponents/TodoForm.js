@@ -6,6 +6,7 @@ const ToDoForm = (props) => {
         <Form onSubmit={props.addItem}>
             <InputField type="text" name="itemName" onChange={props.handleChange} value={props.inputValue}/>
             <SubmitButton>add item</SubmitButton>
+            <div onClick={props.clearItem}>Delete Item</div>
         </Form>
     );
 }
@@ -13,9 +14,10 @@ const ToDoForm = (props) => {
 export default ToDoForm;
 
 const Form = S.form`
-    width: 200px;
+    width: 50%;
     display: flex;
     justfity-content: space-between;
+    margin: 0 auto;
 `;
 
 const InputField = S.input`
@@ -30,5 +32,4 @@ const SubmitButton = S.button`
     font-size: 18px;
     text-transform: uppercase;
     border-radius: 25px;
-    width: 20%
 `;
